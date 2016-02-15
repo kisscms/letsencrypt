@@ -8,6 +8,7 @@ class LetsEncrypt {
 		$file = $this->getFile();
 		file_put_contents($file, $token);
 		echo 'done';
+		exit();
 	}
 
 	public function acmeChallenge(){
@@ -16,6 +17,7 @@ class LetsEncrypt {
 		// get token
 		$token = @file_get_contents( $file );
 		echo $token;
+		exit();
 	}
 
 	public function getFile(){
