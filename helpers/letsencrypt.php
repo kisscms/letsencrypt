@@ -21,9 +21,10 @@ class LetsEncrypt {
 	}
 
 	public function getFile(){
-		$dir = sys_get_temp_dir(); // option...
-		$sitename = trim( strtolower( $GLOBALS['config']['main']['site_name'] ) );
-		$file = $dir ."/". $sitename .".letsencrypt";
+		$dir = sys_get_temp_dir(); // option...			     
+		$host = ( !empty($_SERVER['HTTP_HOST']) ) ? $_SERVER['HTTP_HOST'] : $GLOBALS['config']['main']['site_name'];			     
+		$filename = trim( strtolower( $host ) ) .".letsencrypt";
+		$file = $dir ."/". $filename;
 		return $file;
 	}
 
